@@ -1,10 +1,10 @@
 require "gobject/gdk"
 require "../src/cairo"
 class CairoApp
-  
+
   @window : Gdk::Window
   @main_loop : GLib::MainLoop
- 
+
   def initialize
     Gdk.init
 
@@ -18,24 +18,24 @@ class CairoApp
       ),
       Gdk::WindowAttributesType.flags(TITLE)
       )
-    
+
     @window.events = Gdk::EventMask::ZERO_NONE
 
     @main_loop=GLib::MainLoop.new(nil, true)
-  end 
-  
+  end
+
   def draw(context)
     context.set_source_rgb( 1.0, 1.0, 1.0)
     context.rectangle(0, 0, 600, 400)
     context.fill
     context.line_width=9
-    context.set_source_rgb( 0.69, 0.19, 0) 
+    context.set_source_rgb( 0.69, 0.19, 0)
     context.translate(300,200)
     context.arc(0, 0, 100, 0, 2*Math::PI)
     context.stroke_preserve
     context.set_source_rgb( 0.30, 0.40, 0.60)
     context.fill
-  end 
+  end
 
   def run()
     @window.show
@@ -45,6 +45,7 @@ class CairoApp
           draw((Gdk.cairo_create(@window)))
         when Gdk::EventType::DELETE
           @main_loop.quit
+        else
       end
     end
     @main_loop.run
@@ -54,7 +55,7 @@ end
 app=CairoApp.new
 app.run
 
- 
+
 
 
 

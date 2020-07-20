@@ -3,7 +3,7 @@ require "cairo/cairo"
 
 class CairoApp
   @window : Gtk::Window
-  
+
   delegate show_all, to: @window
 
   def initialize
@@ -39,10 +39,10 @@ class CairoApp
     bbox.pack_start(btn8, expand = true, fill = true, padding = 2)
     scrolledwindow = Gtk::ScrolledWindow.new nil, nil
     scrolledwindow.hexpand = true
-    scrolledwindow.vexpand = true 
+    scrolledwindow.vexpand = true
     darea = Gtk::DrawingArea.new
     @darea = darea.as Gtk::DrawingArea
-    darea.connect "draw",&->draw_white_rect 
+    darea.connect "draw",&->draw_white_rect
     scrolledwindow.add darea
     hb.add bbox
     hb.add scrolledwindow
@@ -60,12 +60,12 @@ class CairoApp
   def draw_text
     draw_white_rect
     context = Gdk.cairo_create(@darea.window.not_nil!)
-    context.set_source_rgb(0, 0, 100) 
-    context.select_font_face("Sans", Cairo::FontSlant::NORMAL , Cairo::FontWeight::NORMAL)
+    context.set_source_rgb(0, 0, 100)
+    context.select_font_face("Sans", LibCairo::FontSlant::NORMAL , LibCairo::FontWeight::NORMAL)
     context.font_size=40
     t_e = context.text_extents("Cairo draw text!")
-    x = (@darea.allocated_width - t_e.width)/2 
-    y = (@darea.allocated_height - t_e.height)/2 
+    x = (@darea.allocated_width - t_e.width)/2
+    y = (@darea.allocated_height - t_e.height)/2
     context.move_to(x,y)
     context.show_text("Cairo draw text!")
   end
@@ -74,31 +74,31 @@ class CairoApp
     draw_white_rect
     context = Gdk.cairo_create(@darea.window.not_nil!)
     context.line_width=9
-    context.set_source_rgb( 0.69, 0.19, 0) 
+    context.set_source_rgb( 0.69, 0.19, 0)
     context.translate(250,150)
     context.arc(0,0,50,0,6.283)
     context.stroke_preserve
     context.set_source_rgb( 0.30, 0.40, 0.60)
     context.fill
-  end 
+  end
 
   def line_caps
     draw_white_rect
     context = Gdk.cairo_create(@darea.window.not_nil!)
-    context.set_source_rgb( 0.3, 0.19, 0.4) 
+    context.set_source_rgb( 0.3, 0.19, 0.4)
     context.line_width= 20
     context.font_size= 20
-    context.line_cap=Cairo::LineCap::BUTT
+    context.line_cap=LibCairo::LineCap::BUTT
     context.move_to(100, 50)
     context.line_to(300, 50)
-    context.stroke 
+    context.stroke
     context.move_to(320,50).show_text("BUTT")
-    context.line_cap=Cairo::LineCap::ROUND
+    context.line_cap=LibCairo::LineCap::ROUND
     context.move_to(100, 150)
     context.line_to(300, 150)
     context.stroke
     context.move_to(320,150).show_text("ROUND")
-    context.line_cap=Cairo::LineCap::SQUARE
+    context.line_cap=LibCairo::LineCap::SQUARE
     context.move_to(100, 250)
     context.line_to(300, 250)
     context.stroke
@@ -113,34 +113,34 @@ class CairoApp
     context.move_to(310, 50)
     context.line_to(310, 250)
     context.stroke
-  end 
+  end
 
   def line_joins
     draw_white_rect
     context = Gdk.cairo_create(@darea.window.not_nil!)
     context.set_source_rgb( 0.3, 0.19, 0.4)
-    context.font_size= 20 
+    context.font_size= 20
     context.rectangle(130, 30, 100, 100)
     context.line_width=14
-    context.line_join=Cairo::LineJoin::MITER
+    context.line_join=LibCairo::LineJoin::MITER
     context.stroke
     context.move_to(150,80).show_text("MITER")
     context.rectangle(260, 30, 100, 100)
     context.line_width=14
-    context.line_join=Cairo::LineJoin::BEVEL
+    context.line_join=LibCairo::LineJoin::BEVEL
     context.stroke
     context.move_to(280,80).show_text("BEVEL")
     context.rectangle(200, 160, 100, 100)
     context.line_width=14
-    context.line_join=Cairo::LineJoin::ROUND
+    context.line_join=LibCairo::LineJoin::ROUND
     context.stroke
     context.move_to(210,210).show_text("ROUND")
-  end 
+  end
 
   def pen_dashes
-    draw_white_rect 
+    draw_white_rect
     context = Gdk.cairo_create(@darea.window.not_nil!)
-    context.set_source_rgb( 0.69, 0.19, 0) 
+    context.set_source_rgb( 0.69, 0.19, 0)
     dashed1 = [4.0, 21.0, 2.0]
     dashed2 = [14.0, 6.0]
     dashed3 = [1.0]
@@ -148,7 +148,7 @@ class CairoApp
     context.set_dash(dashed1, 0)
     context.move_to(100, 30)
     context.line_to(400, 30)
-    context.stroke 
+    context.stroke
     context.set_dash(dashed2, 0)
     context.move_to(100,150)
     context.line_to(400,150)
@@ -157,7 +157,7 @@ class CairoApp
     context.move_to(100,250)
     context.line_to(400,250)
     context.stroke
-  end 
+  end
 
   def transparent
     draw_white_rect

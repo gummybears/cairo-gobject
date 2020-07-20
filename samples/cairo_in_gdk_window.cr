@@ -1,10 +1,10 @@
 require "gobject/gdk"
 require "../src/cairo"
 class CairoApp
-  
+
   @window : Gdk::Window
   @main_loop : GLib::MainLoop
- 
+
   def initialize
     Gdk.init
 
@@ -18,22 +18,22 @@ class CairoApp
       ),
       Gdk::WindowAttributesType.flags(TITLE)
       )
-    
+
     @window.events = Gdk::EventMask::ZERO_NONE
 
     @main_loop=GLib::MainLoop.new(nil, true)
-  end 
-  
+  end
+
   def draw(context)
     context.set_source_rgb( 1.0, 1.0, 1.0)
     context.rectangle(0, 0, 600, 400)
     context.fill
-    context.set_source_rgb( 0, 0, 100) 
-    context.select_font_face("Sans", Cairo::FontSlant::NORMAL , Cairo::FontWeight::NORMAL)
-    context.font_size=80 
+    context.set_source_rgb( 0, 0, 100)
+    context.select_font_face("Sans", LibCairo::FontSlant::NORMAL , LibCairo::FontWeight::NORMAL)
+    context.font_size=80
     context.move_to(10,200)
     context.show_text("Cairo works!!!")
-  end 
+  end
 
   def run()
     @window.show
@@ -43,6 +43,7 @@ class CairoApp
           draw((Gdk.cairo_create(@window)))
         when Gdk::EventType::DELETE
           @main_loop.quit
+        else
       end
     end
     @main_loop.run
@@ -52,7 +53,7 @@ end
 app=CairoApp.new
 app.run
 
- 
+
 
 
 

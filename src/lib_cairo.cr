@@ -4,13 +4,456 @@ lib LibCairo
   # Version for Ubuntu 19.10 and gir1.2-freedesktop(1.62.0-1)
   # For Linux Mint 19 and Ubuntu 18.04 uncomment Rectangle struct
 
-  #struct Rectangle 
-  #  x : Float64
-  #  y : Float64
-  #  width : Float64
-  #  height : Float64
+  struct Rectangle
+    x : Float64
+    y : Float64
+    width : Float64
+    height : Float64
+  end
+
+#   enum PathDataType
+#     ZERO_NONE = 0
+#     MOVE_TO = 0
+#     LINE_TO = 1
+#     CURVE_TO = 2
+#     CLOSE_PATH = 3
+#   end
+#
+#   enum FontSlant
+#     NORMAL  = 0
+#     ITALIC  = 1
+#     OBLIQUE = 2
+#   end
+#
+#
+#   enum FontWeight
+#     NORMAL = 0
+#     BOLD   = 1
+#   end
+#
+#   enum TextClusterFlags
+#     BACKWARD = 0
+#   end
+#
+#   enum  RegionOverlap
+#     IN = 0
+#     OUT = 1
+#     PART = 2
+#   end
+#
+#   enum  Filter
+#     FAST = 0
+#     GOOD = 1
+#     BEST = 2
+#     NEAREST = 3
+#     BILINEAR = 4
+#     GAUSSIAN = 5
+#   end
+#
+#   enum  Extend
+#     NONE = 0
+#     REPEAT = 1
+#     REFLECT = 2
+#     PAD = 3
+#   end
+#
+#   enum Status
+#     ZERO_NONE = 0
+#     SUCCESS = 0
+#     NO_MEMORY = 1
+#     INVALID_RESTORE = 2
+#     INVALID_POP_GROUP = 3
+#     NO_CURRENT_POINT = 4
+#     INVALID_MATRIX = 5
+#     INVALID_STATUS = 6
+#     NULL_POINTER = 7
+#     INVALID_STRING = 8
+#     INVALID_PATH_DATA = 9
+#     READ_ERROR = 10
+#     WRITE_ERROR = 11
+#     SURFACE_FINISHED = 12
+#     SURFACE_TYPE_MISMATCH = 13
+#     PATTERN_TYPE_MISMATCH = 14
+#     INVALID_CONTENT = 15
+#     INVALID_FORMAT = 16
+#     INVALID_VISUAL = 17
+#     FILE_NOT_FOUND = 18
+#     INVALID_DASH = 19
+#     INVALID_DSC_COMMENT = 20
+#     INVALID_INDEX = 21
+#     CLIP_NOT_REPRESENTABLE = 22
+#     TEMP_FILE_ERROR = 23
+#     INVALID_STRIDE = 24
+#     FONT_TYPE_MISMATCH = 25
+#     USER_FONT_IMMUTABLE = 26
+#     USER_FONT_ERROR = 27
+#     NEGATIVE_COUNT = 28
+#     INVALID_CLUSTERS = 29
+#     INVALID_SLANT = 30
+#     INVALID_WEIGHT = 31
+#     INVALID_SIZE = 32
+#     USER_FONT_NOT_IMPLEMENTED = 33
+#     DEVICE_TYPE_MISMATCH = 34
+#     DEVICE_ERROR = 35
+#     INVALID_MESH_CONSTRUCTION = 36
+#     DEVICE_FINISHED = 37
+#     JBIG2_GLOBAL_MISSING = 38
+#   end
+#
+#   enum PatternType : UInt32
+#     ZERO_NONE = 0
+#     SOLID = 0
+#     SURFACE = 1
+#     LINEAR = 2
+#     RADIAL = 3
+#     MESH = 4
+#     RASTER_SOURCE = 5
+#   end
+#
+#   enum Operator : UInt32
+#     ZERO_NONE = 0
+#     CLEAR = 0
+#     SOURCE = 1
+#     OVER = 2
+#     IN = 3
+#     OUT = 4
+#     ATOP = 5
+#     DEST = 6
+#     DEST_OVER = 7
+#     DEST_IN = 8
+#     DEST_OUT = 9
+#     DEST_ATOP = 10
+#     XOR = 11
+#     ADD = 12
+#     SATURATE = 13
+#     MULTIPLY = 14
+#     SCREEN = 15
+#     OVERLAY = 16
+#     DARKEN = 17
+#     LIGHTEN = 18
+#     COLOR_DODGE = 19
+#     COLOR_BURN = 20
+#     HARD_LIGHT = 21
+#     SOFT_LIGHT = 22
+#     DIFFERENCE = 23
+#     EXCLUSION = 24
+#     HSL_HUE = 25
+#     HSL_SATURATION = 26
+#     HSL_COLOR = 27
+#     HSL_LUMINOSITY = 28
+#   end
+#
+#   enum  Antialias
+#     DEFAULT = 0
+#     NONE = 1
+#     GRAY = 2
+#     SUBPIXEL = 3
+#   end
+#
+#   enum  FillRule
+#     WINDING = 0
+#     EVEN_ODD = 1
+#   end
+#
+#   enum LineCap
+#     BUTT = 0
+#     ROUND = 1
+#     SQUARE = 2
+#   end
+#
+#   enum  LineJoin
+#     MITER = 0
+#     ROUND = 1
+#     BEVEL = 2
+#   end
+#
+#   enum SubpixelOrder
+#     DEFAULT = 0
+#     RGB = 1
+#     BGR = 2
+#     VRGB = 3
+#     VBGR = 4
+#   end
+#
+# enum  HintStyle
+#   DEFAULT = 0
+#   NONE = 1
+#   SLIGHT = 2
+#   MEDIUM = 3
+#   FULL = 4
+# end
+#
+# enum  HintMetrics
+#   DEFAULT = 0
+#   OFF = 1
+#   ON = 2
+# end
+
+  enum Status
+    ZERO_NONE = 0
+    SUCCESS = 0
+    NO_MEMORY = 1
+    INVALID_RESTORE = 2
+    INVALID_POP_GROUP = 3
+    NO_CURRENT_POINT = 4
+    INVALID_MATRIX = 5
+    INVALID_STATUS = 6
+    NULL_POINTER = 7
+    INVALID_STRING = 8
+    INVALID_PATH_DATA = 9
+    READ_ERROR = 10
+    WRITE_ERROR = 11
+    SURFACE_FINISHED = 12
+    SURFACE_TYPE_MISMATCH = 13
+    PATTERN_TYPE_MISMATCH = 14
+    INVALID_CONTENT = 15
+    INVALID_FORMAT = 16
+    INVALID_VISUAL = 17
+    FILE_NOT_FOUND = 18
+    INVALID_DASH = 19
+    INVALID_DSC_COMMENT = 20
+    INVALID_INDEX = 21
+    CLIP_NOT_REPRESENTABLE = 22
+    TEMP_FILE_ERROR = 23
+    INVALID_STRIDE = 24
+    FONT_TYPE_MISMATCH = 25
+    USER_FONT_IMMUTABLE = 26
+    USER_FONT_ERROR = 27
+    NEGATIVE_COUNT = 28
+    INVALID_CLUSTERS = 29
+    INVALID_SLANT = 30
+    INVALID_WEIGHT = 31
+    INVALID_SIZE = 32
+    USER_FONT_NOT_IMPLEMENTED = 33
+    DEVICE_TYPE_MISMATCH = 34
+    DEVICE_ERROR = 35
+    INVALID_MESH_CONSTRUCTION = 36
+    DEVICE_FINISHED = 37
+    JBIG2_GLOBAL_MISSING = 38
+  end
+
+  #enum Content
+  #  ZERO_NONE = 0
+  #  COLOR = 4096
+  #  ALPHA = 8192
+  #  COLOR_ALPHA = 12288
   #end
-  
+
+  enum Operator
+    ZERO_NONE = 0
+    CLEAR = 0
+    SOURCE = 1
+    OVER = 2
+    IN = 3
+    OUT = 4
+    ATOP = 5
+    DEST = 6
+    DEST_OVER = 7
+    DEST_IN = 8
+    DEST_OUT = 9
+    DEST_ATOP = 10
+    XOR = 11
+    ADD = 12
+    SATURATE = 13
+    MULTIPLY = 14
+    SCREEN = 15
+    OVERLAY = 16
+    DARKEN = 17
+    LIGHTEN = 18
+    COLOR_DODGE = 19
+    COLOR_BURN = 20
+    HARD_LIGHT = 21
+    SOFT_LIGHT = 22
+    DIFFERENCE = 23
+    EXCLUSION = 24
+    HSL_HUE = 25
+    HSL_SATURATION = 26
+    HSL_COLOR = 27
+    HSL_LUMINOSITY = 28
+  end
+
+  enum Antialias : UInt32
+    ZERO_NONE = 0
+    DEFAULT = 0
+    NONE = 1
+    GRAY = 2
+    SUBPIXEL = 3
+    FAST = 4
+    GOOD = 5
+    BEST = 6
+  end
+
+  enum FillRule
+    ZERO_NONE = 0
+    WINDING = 0
+    EVEN_ODD = 1
+  end
+
+  enum LineCap
+    ZERO_NONE = 0
+    BUTT = 0
+    ROUND = 1
+    SQUARE = 2
+  end
+
+  enum LineJoin
+    ZERO_NONE = 0
+    MITER = 0
+    ROUND = 1
+    BEVEL = 2
+  end
+
+  enum TextClusterFlags
+    ZERO_NONE = 0
+    BACKWARD = 1
+  end
+
+  enum FontSlant
+    ZERO_NONE = 0
+    NORMAL = 0
+    ITALIC = 1
+    OBLIQUE = 2
+  end
+
+  enum FontWeight
+    ZERO_NONE = 0
+    NORMAL = 0
+    BOLD = 1
+  end
+
+  enum SubpixelOrder
+    ZERO_NONE = 0
+    DEFAULT = 0
+    RGB = 1
+    BGR = 2
+    VRGB = 3
+    VBGR = 4
+  end
+
+  enum HintStyle
+    ZERO_NONE = 0
+    DEFAULT = 0
+    NONE = 1
+    SLIGHT = 2
+    MEDIUM = 3
+    FULL = 4
+  end
+
+  enum HintMetrics
+    ZERO_NONE = 0
+    DEFAULT = 0
+    OFF = 1
+    ON = 2
+  end
+
+  #enum FontType
+  #  ZERO_NONE = 0
+  #  TOY = 0
+  #  FT = 1
+  #  WIN32 = 2
+  #  QUARTZ = 3
+  #  USER = 4
+  #end
+
+  enum PathDataType
+    ZERO_NONE = 0
+    MOVE_TO = 0
+    LINE_TO = 1
+    CURVE_TO = 2
+    CLOSE_PATH = 3
+  end
+
+  enum DeviceType
+    ZERO_NONE = 0
+    DRM = 0
+    GL = 1
+    SCRIPT = 2
+    XCB = 3
+    XLIB = 4
+    XML = 5
+    COGL = 6
+    WIN32 = 7
+    INVALID = -1
+  end
+
+  enum SurfaceType
+    ZERO_NONE = 0
+    IMAGE = 0
+    PDF = 1
+    PS = 2
+    XLIB = 3
+    XCB = 4
+    GLITZ = 5
+    QUARTZ = 6
+    WIN32 = 7
+    BEOS = 8
+    DIRECTFB = 9
+    SVG = 10
+    OS2 = 11
+    WIN32_PRINTING = 12
+    QUARTZ_IMAGE = 13
+    SCRIPT = 14
+    QT = 15
+    RECORDING = 16
+    VG = 17
+    GL = 18
+    DRM = 19
+    TEE = 20
+    XML = 21
+    SKIA = 22
+    SUBSURFACE = 23
+    COGL = 24
+  end
+
+  enum Format
+    ZERO_NONE = 0
+    INVALID = -1
+    ARGB32 = 0
+    RGB24 = 1
+    A8 = 2
+    A1 = 3
+    RGB16_565 = 4
+    RGB30 = 5
+  end
+
+  enum PatternType
+    ZERO_NONE = 0
+    SOLID = 0
+    SURFACE = 1
+    LINEAR = 2
+    RADIAL = 3
+    MESH = 4
+    RASTER_SOURCE = 5
+  end
+
+  enum Extend
+    ZERO_NONE = 0
+    NONE = 0
+    REPEAT = 1
+    REFLECT = 2
+    PAD = 3
+  end
+
+  enum Filter
+    ZERO_NONE = 0
+    FAST = 0
+    GOOD = 1
+    BEST = 2
+    NEAREST = 3
+    BILINEAR = 4
+    GAUSSIAN = 5
+  end
+
+  enum RegionOverlap
+    ZERO_NONE = 0
+    IN = 0
+    OUT = 1
+    PART = 2
+  end
+
+   struct Device # struct
+    _data : UInt8[0]
+  end
 
   struct UserDataKey
     unused : Int32
@@ -80,15 +523,15 @@ lib LibCairo
   alias UserScaledFontRenderGlyphFunc = LibCairo::ScaledFont*, UInt64, LibCairo::Context*, LibCairo::TextExtents* -> LibCairo::Status
 
   alias UserScaledFontUnicodeToGlyphFunc = LibCairo::ScaledFont*, UInt64, UInt64* -> LibCairo::Status
-  
+
   fun create = cairo_create(target : LibCairo::Surface*) : LibCairo::Context*
 
   fun reference = cairo_reference(cr : LibCairo::Context*) : LibCairo::Context*
-  
+
   fun destroy = cairo_destroy(this : LibCairo::Context*)
 
   fun get_reference_count = cairo_get_reference_count(cr: LibCairo::Context*) : UInt32
-  
+
   fun get_user_data = cairo_get_user_data(
     cr : LibCairo::Context*,
     key : LibCairo::UserDataKey*
@@ -101,167 +544,167 @@ lib LibCairo
       destroy : DestroyFunc
     ) : LibCairo::Status
 
-  
+
   fun save = cairo_save(cr : LibCairo::Context*) : Void
 
   fun restore = cairo_restore(cr : LibCairo::Context*) : Void
 
   fun push_group = cairo_push_group(cr : LibCairo::Context*) : Void
 
-  fun push_group_with_content = cairo_push_group_with_content( 
-    cr : LibCairo::Context*, 
-    content : LibCairo::Content 
-  ) : Void 
+  fun push_group_with_content = cairo_push_group_with_content(
+    cr : LibCairo::Context*,
+    content : LibCairo::Content
+  ) : Void
 
   fun pop_group = cairo_pop_group(cr : LibCairo::Context*) : LibCairo::PatternType
 
   fun pop_group_to_source = cairo_pop_group_to_source(cr : LibCairo::Context*) : LibCairo::Context*
-  
-  fun set_operator = cairo_set_operator( 
-    cr : LibCairo::Context*, 
-    op : LibCairo::Operator
-  ) : Void 
 
-  fun set_source = cairo_set_source( 
-    cr : LibCairo::Context*, 
-    source : LibCairo::Pattern* 
-  ) : Void 
+  fun set_operator = cairo_set_operator(
+    cr : LibCairo::Context*,
+    op : LibCairo::Operator
+  ) : Void
+
+  fun set_source = cairo_set_source(
+    cr : LibCairo::Context*,
+    source : LibCairo::Pattern*
+  ) : Void
 
   fun set_source_rgb = cairo_set_source_rgb(
     cr : LibCairo::Context*,
     red : Float64,
     green : Float64,
     blue : Float64
-  ) : Void 
-  
+  ) : Void
+
   fun set_source_rgba = cairo_set_source_rgba(
     cr : LibCairo::Context*,
     red : Float64,
     green : Float64,
     blue : Float64,
     alfa : Float64
-  ) : Void 
+  ) : Void
 
-  fun set_source_surface = cairo_set_source_surface( 
-    cr : LibCairo::Context*, 
-    surface : LibCairo::Surface*, 
-    x : Float64, 
-    y : Float64 
-  ) : Void 
+  fun set_source_surface = cairo_set_source_surface(
+    cr : LibCairo::Context*,
+    surface : LibCairo::Surface*,
+    x : Float64,
+    y : Float64
+  ) : Void
 
-  fun set_tolerance = cairo_set_tolerance( 
-    cr : LibCairo::Context*, 
-    tolerance : Float64 
-  ) : Void 
+  fun set_tolerance = cairo_set_tolerance(
+    cr : LibCairo::Context*,
+    tolerance : Float64
+  ) : Void
 
-  fun set_antialias = cairo_set_antialias( 
-    cr : LibCairo::Context*, 
-    antialias : LibCairo::Antialias 
-  ) : Void 
+  fun set_antialias = cairo_set_antialias(
+    cr : LibCairo::Context*,
+    antialias : LibCairo::Antialias
+  ) : Void
 
-  fun set_fill_rule = cairo_set_fill_rule( 
-    cr : LibCairo::Context*, 
-    fill_rule : LibCairo::FillRule 
-  ) : Void 
+  fun set_fill_rule = cairo_set_fill_rule(
+    cr : LibCairo::Context*,
+    fill_rule : LibCairo::FillRule
+  ) : Void
 
   fun set_line_width = cairo_set_line_width(
     cr : LibCairo::Context*,
     width : Float64
-  ) : Void 
-  
-  fun set_line_cap = cairo_set_line_cap( 
-    cr : LibCairo::Context*, 
+  ) : Void
+
+  fun set_line_cap = cairo_set_line_cap(
+    cr : LibCairo::Context*,
     line_cap : LibCairo::LineCap
-  ) : Void 
+  ) : Void
 
-  fun set_line_join = cairo_set_line_join( 
-    cr : LibCairo::Context*, 
+  fun set_line_join = cairo_set_line_join(
+    cr : LibCairo::Context*,
     line_join : LibCairo::LineJoin
-  ) : Void 
+  ) : Void
 
-  fun set_dash = cairo_set_dash( 
-    cr : LibCairo::Context*, 
-    dashes : Float64*, 
-    num_dashes : Int32, 
-    offset : Float64 
-  ) : Void 
+  fun set_dash = cairo_set_dash(
+    cr : LibCairo::Context*,
+    dashes : Float64*,
+    num_dashes : Int32,
+    offset : Float64
+  ) : Void
 
-  fun set_miter_limit = cairo_set_miter_limit( 
-    cr : LibCairo::Context*, 
-    limit : Float64 
-  ) : Void 
+  fun set_miter_limit = cairo_set_miter_limit(
+    cr : LibCairo::Context*,
+    limit : Float64
+  ) : Void
 
   fun translate = cairo_translate(
     cr : LibCairo::Context*,
      x : Float64 ,
      y : Float64
-  ) : Void 
-  
-  fun scale = cairo_scale( 
-    cr : LibCairo::Context*, 
-    sx : Float64, 
-    sy : Float64 
-  ) : Void 
+  ) : Void
 
-  fun rotate = cairo_rotate( 
-    cr : LibCairo::Context*, 
-    angle : Float64 
-  ) : Void 
+  fun scale = cairo_scale(
+    cr : LibCairo::Context*,
+    sx : Float64,
+    sy : Float64
+  ) : Void
 
-  fun transform = cairo_transform( 
-    cr : LibCairo::Context*, 
+  fun rotate = cairo_rotate(
+    cr : LibCairo::Context*,
+    angle : Float64
+  ) : Void
+
+  fun transform = cairo_transform(
+    cr : LibCairo::Context*,
     matrix : LibCairo::Matrix*
-  ) : Void 
+  ) : Void
 
-  fun set_matrix = cairo_set_matrix( 
-    cr : LibCairo::Context*, 
-    matrix : LibCairo::Matrix* 
-  ) : Void 
+  fun set_matrix = cairo_set_matrix(
+    cr : LibCairo::Context*,
+    matrix : LibCairo::Matrix*
+  ) : Void
 
   fun identity_matrix = cairo_identity_matrix(cr : LibCairo::Context*) : Void
 
-  fun user_to_device = cairo_user_to_device( 
-    cr : LibCairo::Context*, 
-    x : Float64*, 
-    y : Float64* 
-  ) : Void 
+  fun user_to_device = cairo_user_to_device(
+    cr : LibCairo::Context*,
+    x : Float64*,
+    y : Float64*
+  ) : Void
 
-  fun user_to_device_distance = cairo_user_to_device_distance( 
-    cr : LibCairo::Context*, 
-    dx : Float64*, 
-    dy : Float64* 
-  ) : Void 
+  fun user_to_device_distance = cairo_user_to_device_distance(
+    cr : LibCairo::Context*,
+    dx : Float64*,
+    dy : Float64*
+  ) : Void
 
   fun device_to_user = cairo_device_to_user(
-    cr : LibCairo::Context*, 
-    x : Float64*, 
-    y : Float64* 
+    cr : LibCairo::Context*,
+    x : Float64*,
+    y : Float64*
   ) : Void
 
   fun device_to_user_distance = cairo_device_to_user_distance(
-    cr : LibCairo::Context*, 
-    dx : Float64*, 
-    dy : Float64* 
+    cr : LibCairo::Context*,
+    dx : Float64*,
+    dy : Float64*
   ) : Void
 
   fun new_path = cairo_new_path(cr : LibCairo::Context*) : Void
 
   fun move_to = cairo_move_to(cr : LibCairo::Context*, x : Float64, y : Float64) : Void
-  
+
   fun new_sub_path = cairo_new_sub_path(cr : LibCairo::Context*) : Void
 
   fun line_to = cairo_line_to(cr : LibCairo::Context*, x : Float64 ,y : Float64) : Void
-  
-  fun curve_to = cairo_curve_to( 
-    cr : LibCairo::Context*, 
-    x1 : Float64, 
-    y1 : Float64, 
-    x2 : Float64, 
-    y2 : Float64, 
-    x3 : Float64, 
-    y3 : Float64 
-  ) : Void 
- 
+
+  fun curve_to = cairo_curve_to(
+    cr : LibCairo::Context*,
+    x1 : Float64,
+    y1 : Float64,
+    x2 : Float64,
+    y2 : Float64,
+    x3 : Float64,
+    y3 : Float64
+  ) : Void
+
   fun arc = cairo_arc(
     cr : LibCairo::Context*,
     xc : Float64,
@@ -270,7 +713,7 @@ lib LibCairo
     angle1 : Float64,
     angle2 : Float64
   ) : Void
-  
+
   fun arc_negative = cairo_arc_negative(
     cr : LibCairo::Context*,
     xc : Float64,
@@ -280,27 +723,27 @@ lib LibCairo
     angle2 : Float64
   ) : Void
 
-  fun rel_move_to = cairo_rel_move_to( 
-    cr : LibCairo::Context*, 
-    dx : Float64, 
-    dy : Float64 
-  ) : Void 
-
-  fun rel_line_to = cairo_rel_line_to(
-    cr : LibCairo::Context*, 
-    dx : Float64, 
-    dy : Float64 
+  fun rel_move_to = cairo_rel_move_to(
+    cr : LibCairo::Context*,
+    dx : Float64,
+    dy : Float64
   ) : Void
 
-  fun rel_curve_to = cairo_rel_curve_to( 
-    cr : LibCairo::Context*, 
-    dx1 : Float64, 
-    dy1 : Float64, 
-    dx2 : Float64, 
-    dy2 : Float64, 
-    dx3 : Float64, 
-    dy3 : Float64 
-  ) : Void 
+  fun rel_line_to = cairo_rel_line_to(
+    cr : LibCairo::Context*,
+    dx : Float64,
+    dy : Float64
+  ) : Void
+
+  fun rel_curve_to = cairo_rel_curve_to(
+    cr : LibCairo::Context*,
+    dx1 : Float64,
+    dy1 : Float64,
+    dx2 : Float64,
+    dy2 : Float64,
+    dx3 : Float64,
+    dy3 : Float64
+  ) : Void
 
   fun rectangle = cairo_rectangle(
     cr : LibCairo::Context*,
@@ -339,18 +782,18 @@ lib LibCairo
     surface_y : Float64
   ) : Void
 
-  fun stroke = cairo_stroke(cr : LibCairo::Context*) : Void 
-  
-  fun stroke_preserve = cairo_stroke_preserve(cr : LibCairo::Context* ) : Void 
-  
-  fun fill = cairo_fill(cr : LibCairo::Context*) : Void 
+  fun stroke = cairo_stroke(cr : LibCairo::Context*) : Void
 
-  fun fill_preserve = cairo_fill_preserve(cr : LibCairo::Context*) : Void 
-  
+  fun stroke_preserve = cairo_stroke_preserve(cr : LibCairo::Context* ) : Void
+
+  fun fill = cairo_fill(cr : LibCairo::Context*) : Void
+
+  fun fill_preserve = cairo_fill_preserve(cr : LibCairo::Context*) : Void
+
   fun copy_page = cairo_copy_page(cr : LibCairo::Context*) : Void
 
   fun show_page = cairo_show_page(cr : LibCairo::Context*) : Void
-  
+
   fun in_stroke = cairo_in_stroke(
     cr : LibCairo::Context*,
     x : Float64,
@@ -402,7 +845,7 @@ lib LibCairo
   fun glyph_allocate = cairo_glyph_allocate(num_glyphs : Int32) : LibCairo::Glyph*
 
   fun glyph_free = cairo_glyph_free(glyphs : LibCairo::Glyph*) : Void
- 
+
   fun text_cluster_allocate = cairo_text_cluster_allocate(
     num_clusters : Int32
   ) : LibCairo::TextCluster*
@@ -410,7 +853,7 @@ lib LibCairo
   fun text_cluster_free = cairo_text_cluster_free(
     clusters : LibCairo::TextCluster*
   ) : Void
- 
+
   fun font_options_create = cairo_font_options_create(
     ) : LibCairo::FontOptions*
 
@@ -669,7 +1112,7 @@ lib LibCairo
       num_glyphs : Int32,
       extents : LibCairo::TextExtents*
     ) : Void
-       
+
     fun scaled_font_get_font_face = cairo_scaled_font_get_font_face(
       scaled_font : LibCairo::ScaledFont*
     ) : LibCairo::FontFace*
@@ -725,7 +1168,7 @@ lib LibCairo
       font_face : LibCairo::FontFace*,
       render_glyph_func : UserScaledFontRenderGlyphFunc
     ) : Void
-       
+
     fun user_font_face_set_unicode_to_glyph_func = cairo_user_font_face_set_unicode_to_glyph_func(
       font_face : LibCairo::FontFace*,
       unicode_to_glyph_func : UserScaledFontUnicodeToGlyphFunc
@@ -740,11 +1183,11 @@ lib LibCairo
     fun user_font_face_get_render_glyph_func = cairo_user_font_face_get_render_glyph_func(
       font_face : LibCairo::FontFace*
     ) : UserScaledFontRenderGlyphFunc
-       
+
     fun user_font_face_get_unicode_to_glyph_func = cairo_user_font_face_get_unicode_to_glyph_func(
       font_face : LibCairo::FontFace*
     ) : UserScaledFontUnicodeToGlyphFunc
-         
+
     ##########################################################
 
     fun region_create = cairo_region_create() : LibCairo::Region*
@@ -1016,7 +1459,7 @@ lib LibCairo
     fun pattern_get_extend = cairo_pattern_get_extend(
       pattern : LibCairo::Pattern*,
     ) : LibCairo::Extend
-  
+
     fun pattern_get_type = cairo_pattern_get_type(
       pattern : LibCairo::Pattern*,
     ) : LibCairo::PatternType
