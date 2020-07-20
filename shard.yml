@@ -1,0 +1,16 @@
+name: cairo-gobject
+version: 0.1.0
+
+authors:
+  - Viacheslav Paliy <viachpaliy@ukr.net>
+
+crystal: 0.34.0
+
+description: "Cairo bindings for applying with crystal-gobject"
+
+dependencies:
+  gobject :
+    github: jhass/crystal-gobject
+    version: ~> 0.8.0
+
+license: MIT
