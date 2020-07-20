@@ -474,3 +474,4 @@ The lines are 14 px wide.
 ```
 
 Here we draw a rectangle with cairo.LINE_JOIN_MITER join style. 
+# cairo-gobject
