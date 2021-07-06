@@ -1,2 +1,2 @@
 require "spec"
-require "../src/cairo-gobject"
+#require "../src/cairo-gobject"
